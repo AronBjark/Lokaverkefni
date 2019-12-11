@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>{{article.title}}</h1>
+  <small>Skrifað af <b>{{article.author}}</b> þann <b>{{article.create_date}}</b></small>
+  <hr>
+  <div>
+    {{article.body | safe}}
+  </div>
+{% endblock %}

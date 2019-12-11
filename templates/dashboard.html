@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+  <h1>Mín Síða <small> Velkominn {{session.username}}</small></h1>
+  <a class="btn btn-success" href="/add_article"> Bæta Við Póst</a>
+  <hr>  
+    <div class="jumbotron text-center">
+    <table class="table table-striped">
+      <tr>
+        <th>ID</th>
+        <th>Titill</th>
+        <th>Höf</th>
+        <th>Dags</th>
+        <th></th>
+        <th></th>
+      </tr>
+      {% for article in articles %}
+        <tr>
+          <td>{{article.id}}</td>
+          <td>{{article.title}}</td>
+          <td>{{article.author}}</td>
+          <td>{{article.create_date}}</td>
+          <td><a href="edit_article/{{article.id}}" class="btn btn-default pull-right">Breyta</a></td>
+          <td>
+            <form action="{{url_for('delete_article', id=article.id)}}" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}

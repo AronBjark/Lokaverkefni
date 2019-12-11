@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="jumbotron text-center">
+    <font color="grey" ><h1>Tim Berners Lee</h1>
+    <h2>FAN PAGE</h2>
+    <p class="lead"><b>Hér á þessari síðu færð þú skrifað hvað þér finnst Tim Berners Lee frábær, vinsamlegast hafðu það jákvætt <3</p>
+    <p class="lead">Þeir sem skrifa neikvætt verða hýddir :D </font></b></p>
+    {% if session.logged_in == NULL %}
+      <a href="/register" class="btn btn-primary btn-lg">Gerast Meðlimur</a>
+      <a href="/login" class="btn btn-success btn-lg">Innskrá</a>
+    {% endif %}
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Sir_Tim_Berners-Lee_%28cropped%29.jpg/220px-Sir_Tim_Berners-Lee_%28cropped%29.jpg" tyle="width:48px;height:48px;" alt="IMG of Tim">
+  </div>
+{% endblock %}
